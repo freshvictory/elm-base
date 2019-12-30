@@ -2,8 +2,11 @@ import './main.css';
 import { Elm } from './Main.elm';
 import * as serviceWorker from './serviceWorker';
 
-Elm.Main.init({
+var app = Elm.Main.init({
   node: document.getElementById('root')
+});
+app.ports.blurActiveElement.subscribe(function () {
+  document.activeElement.blur();
 });
 
 // If you want your app to work offline and load faster, you can change
